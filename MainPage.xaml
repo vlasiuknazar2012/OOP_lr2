@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OOP_lr2.MainPage"
+             Title="Інформаційні ресурси кафедри">
+
+    <Grid ColumnDefinitions="360,*" Padding="12" ColumnSpacing="12">
+
+        <ScrollView Grid.Column="0">
+            <VerticalStackLayout Spacing="10">
+                <Button Text="Вибрати XML-файл" Clicked="SelectFileButton_Clicked" />
+                <Label x:Name="FilePathLabel" Text="Файл не вибрано" LineBreakMode="MiddleTruncation" />
+
+                <Label Text="Спосіб аналізу документа" FontAttributes="Bold" />
+                <Picker x:Name="StrategyPicker" SelectedIndexChanged="StrategyPicker_SelectedIndexChanged" />
+
+                <Label Text="Параметри пошуку" FontAttributes="Bold" />
+                <VerticalStackLayout x:Name="AttributesPanel" Spacing="6" />
+
+                <Button Text="Пошук" Clicked="SearchButton_Clicked" />
+                <Button Text="Трансформувати в HTML" Clicked="TransformButton_Clicked" />
+                <Button Text="Clear" Clicked="ClearButton_Clicked" />
+                <Button Text="Вихід" Clicked="ExitButton_Clicked" />
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Grid Grid.Column="1" RowDefinitions="Auto,*,Auto,*" RowSpacing="6">
+            <Label Grid.Row="0" Text="Результат пошуку" FontAttributes="Bold" />
+            <Editor x:Name="ResultEditor" Grid.Row="1" IsReadOnly="True" />
+            <Label Grid.Row="2" Text="HTML-результат трансформації" FontAttributes="Bold" />
+            <WebView x:Name="HtmlWebView" Grid.Row="3" />
+        </Grid>
+
+    </Grid>
+</ContentPage>
